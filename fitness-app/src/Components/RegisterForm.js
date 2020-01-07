@@ -22,30 +22,29 @@ const RegisterForm =({values, errors, touched, status}) => {
   return (
       <div>
         <Form>
-            <label htmlFor="firstName">First Name:</label>
+            <label htmlFor="username">Username:</label>
             <Field
-                id="firstName" type="text" name="firstName"
+                id="username" type="text" name="username"
             />
-            <label htmlFor="lastName">Last Name:</label>
-            <Field
-                id="lastName" type="text" name="lastName"
-            />
-            <label htmlFor="email">Email:</label>
-            <Field
-                id="email" type="text" name="email"
-            />
-            <label htmlFor="phone">Phone:</label>
-            <Field
-                id="phone" type="text" name="phone"
-            />
+            {touched.username && errors.username && (
+                <p>{errors.username}</p>
+            )}
             <label htmlFor="password">Password:</label>
             <Field
                 id="password" type="text" name="password"
             />
-            <label htmlFor="age">Age:</label>
+            {touched.password && errors.password && (
+                <p>{errors.password}</p>
+            )}
             <Field
-                id="age" type="text" name="age"
-            />
+                as="select"
+                name="role_id"
+                type="dropdownlist"
+                >
+                <option value="role_id">Role ID</option>
+                <option value="1">1 Instructor</option>
+                <option value="2">2 Client</option>
+            </Field>
             <button type="submit">Complete Registration</button>
         </Form>
       </div>
@@ -53,16 +52,32 @@ const RegisterForm =({values, errors, touched, status}) => {
 };
 
 const FormikRegisterForm = withFormik ({
-    mapPropsToValues({firstName, lastName, email, phone, password, age, }) {
+    mapPropsToValues({username, password, role_id }) {
         return {
-            firstName: firstName || "",
-            lastName: lastName || "",
-            email: email || "",
-            phone: phone || "",
+            username: username || "",
             password: password || "",
-            age: age || "",
-        }
-    }
-})
+            role_id: role_id,
+        };
+    },
+    validationSchema: Yup.object().shape({
+        username: Yup.string().required("Is Required"),
+        password: Yup.string().required("Is Required"),
+        role_id: Yup.string()
+            .oneOf(["1", "2",])
+            .required("Please choose a role"),
+      }),
+      handleSubmit(values, { setStatus, resetForm }) {
+        console.log("submitting", values);
+        axios
+          .post("https://anywhere-fitness04.herokuapp.com/api/auth/register", values)
+          .then(res => {
+            console.log("success", res);
+            setStatus(res.data);
+            resetForm();
+          })
+          .catch(err => console.log(err.response));
+      }
+      
+}) (RegisterForm)
 
-export default RegisterForm;
+export default FormikRegisterForm;

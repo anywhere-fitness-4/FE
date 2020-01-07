@@ -1,6 +1,7 @@
 import React from 'react';
-import RegisterForm from '../src/Components/RegisterForm';
-import LoginForm from '../src/Components/LoginForm';
+import FormikRegisterForm from '../src/Components/RegisterForm';
+import FormikLoginForm from '../src/Components/LoginForm';
+import ClassGrid from '../src/Components/ClassGrid';
 import styled from "styled-components";
 import './App.css';
 
@@ -12,9 +13,12 @@ function App() {
   return (
     <SideBySide>
       <h1>Register</h1>
-      <RegisterForm/>
+      <FormikRegisterForm/>
       <h1>Login</h1>
-      <LoginForm/>
+      <FormikLoginForm/>
+      <h1>
+        <ClassGrid/>
+      </h1>
     </SideBySide>
   );
 }

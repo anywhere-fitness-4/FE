@@ -1,59 +1,71 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
+import { withFormik, Form, Field } from "formik";
+import * as Yup from "yup";
+import axios from "axios";
 
-const LoginForm = props => {
-    const [login, setLogin] = useState({ email: "", password: "" });
-  
-    const handleChanges = e => {
-      setLogin({
-        ...login,
-        [e.target.name]: e.target.value
-      });
-      console.log(e.target.name);
-    };
-  
-    const submitForm = e => {
-      e.preventDefault();
-    //   props.addNewLogin(login);
-      console.log(props.addNewLogin)
-      setLogin({ email: "", password: "" });
-    };
+const LoginForm =({values, errors, touched, status}) => {
+    const [users, setUsers] = useState([]);
+    useEffect(() => {
+        console.log("status has changed", status);
+        status && setUsers(users => [...users, status]);
+      }, [status]);
 
-    const StyledContainer = styled.div`
-        border: 2px solid black;`;
+    // const StyledContainer = styled.div`
+    //     border: 2px solid black;`;
 
-    const FlexLogin = styled.div`
-        display: flex;
-        flex-direction: column;
-        align-items: center;`;
+    // const FlexLogin = styled.div`
+    //     display: flex;
+    //     flex-direction: column;
+    //     align-items: center;`;
             
-  
     return (
-      <StyledContainer>  
-      <form onSubmit={submitForm}>
-        <FlexLogin>
-        <label htmlFor="email">Email</label>
-        <input
-          id="email"
-          type="text"
-          placeholder="Email;"
-          onChange={handleChanges}
-          name="Email"
-          value={login.email}
-        />
-        <label htmlFor="password">Password</label>
-        <textarea
-          id="password"
-          name="password"
-          placeholder="Password;"
-          onChange={handleChanges}
-          value={login.password}
-        />
-        <button type="submit">Login</button>
-        </FlexLogin>
-      </form>
-      </StyledContainer>
+      <div>  
+        <Form>
+            <label htmlFor="username">Username:</label>
+            <Field
+                id="username" type="text" name="username"
+            />
+            {touched.username && errors.username && (
+                <p>{errors.username}</p>
+            )}
+            <label htmlFor="password">Password</label>
+            <Field
+                id="password" type="text" name="password"
+            />
+            {touched.password && errors.password && (
+                <p>{errors.password}</p>
+            )}
+            <button type="submit">Login</button>
+        </Form>
+      </div>
     );
   };
   
-  export default LoginForm;
+  const FormikLoginForm = withFormik ({
+    mapPropsToValues({username, password }) {
+        return {
+            username: username || "",
+            password: password || "",
+        };
+    },
+    validationSchema: Yup.object().shape({
+        username: Yup.string().required("Is Required"),
+        password: Yup.string().required("Is Required"),
+      }),
+      handleSubmit(values, { setStatus, resetForm }) {
+        console.log("submitting", values);
+        axios
+          .post("https://anywhere-fitness04.herokuapp.com/api/auth/login", values)
+          .then(res => {
+            console.log("success", res);
+            setStatus(res.data);
+            resetForm();
+          })
+          .catch(err => console.log(err.response));
+      }
+      
+}) (LoginForm)
+
+export default FormikLoginForm;
+     
