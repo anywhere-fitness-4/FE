@@ -11,34 +11,66 @@ const LoginForm =({values, errors, touched, status}) => {
         status && setUsers(users => [...users, status]);
       }, [status]);
 
-    // const StyledContainer = styled.div`
-    //     border: 2px solid black;`;
-
-    // const FlexLogin = styled.div`
-    //     display: flex;
-    //     flex-direction: column;
-    //     align-items: center;`;
+      const CenteredDiv = styled.div`
+      display: flex; 
+      justify-content: center;
+      padding-top: 10%;`;
+      
+      const StyledContainer = styled.div`
+        border: 2px solid black;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        width: 50%;
+        background-color: orange;
+        `;
+      
+      const StyledForm = styled.div`
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        `;
+      
+        const Input = styled(Field)`
+        color: FF6A22;
+        font-size: 2rem`;
+      
+        const Input2 = styled(Field)`
+        font-size: 2rem`;
+      
+        const Span = styled.span`
+        padding-bottom: 5%;`
             
     return (
-      <div>  
-        <Form>
-            <label htmlFor="username">Username:</label>
-            <Field
-                id="username" type="text" name="username"
-            />
-            {touched.username && errors.username && (
-                <p>{errors.username}</p>
-            )}
-            <label htmlFor="password">Password</label>
-            <Field
-                id="password" type="text" name="password"
-            />
-            {touched.password && errors.password && (
-                <p>{errors.password}</p>
-            )}
-            <button type="submit">Login</button>
-        </Form>
-      </div>
+      <CenteredDiv>
+        <StyledContainer>
+          <Form>
+            <h1>Login Form</h1>
+            <StyledForm>
+              <label htmlFor="username">Username:</label>
+              <Span/>
+              <Input
+                  id="username" type="text" name="username" placeholder="username"
+              />
+              {touched.username && errors.username && (
+                  <p>{errors.username}</p>
+              )}
+              <Span/>
+              <label htmlFor="password">Password</label>
+              <Span/>
+              <Input
+                  id="password" type="text" name="password" placeholder="password"
+              />
+              {touched.password && errors.password && (
+                  <p>{errors.password}</p>
+              )}
+              <Span/>
+              <button type="submit">Login</button>
+              <Span/>
+            </StyledForm>
+          </Form>
+        </StyledContainer>  
+      </CenteredDiv>
     );
   };
   
