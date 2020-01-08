@@ -3,13 +3,18 @@ import Class from "./Class";
 import axios from "axios";
 
 export default function ClassGrid() {
-    const [classData, setClassData] = useState([])
+    const [classData, setClassData] = useState([{
+        id: '',
+        name: '',
+        city: '',
+        abbreviation: ''
+    }])
 
     useEffect(() => {
-        axios.get(`https://anywhere-fitness04.herokuapp.com/api/classes`)
+        axios.get(`https://www.balldontlie.io/api/v1/teams`)
         .then(response => {
-            console.log(response)
-            setClassData(response.data);
+            console.log(response.data)
+            setClassData(response.data.data);
         })
         .catch(error => {
             console.log("Got an error", error)
@@ -25,9 +30,9 @@ export default function ClassGrid() {
             <Class
             key = {attribute.id}
             name = {attribute.name}
-            type = {attribute.type}
-            date = {attribute.class_date}
-            intensity = {attribute.intensity}/>
+            city = {attribute.city}
+            abbreviation = {attribute.abbreviation}
+            />
             )
             })}
             
