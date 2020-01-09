@@ -64,7 +64,7 @@ padding-bottom: 5%;`;
                         <p>{errors.password}</p>
                     )}
                     <Span1/>
-                    <label htmlFor ="select">Type of User</label>
+                    <label htmlFor ="select">Type of User:</label>
                     <Span1/>
                     <Field
                         as="select"

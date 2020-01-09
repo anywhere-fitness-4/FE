@@ -11,36 +11,6 @@ const LoginForm =({values, errors, touched, status}) => {
         console.log("status has changed", status);
         status && setUsers(users => [...users, status]);
       }, [status]);
-
-      const CenteredDiv = styled.div`
-      display: flex; 
-      justify-content: center;
-      padding-top: 10%;`;
-      
-      const StyledContainer = styled.div`
-        border: px solid black;
-        text-align: center;
-        display: flex;
-        justify-content: center;
-        width: 50%;
-        background-color: orange;
-        `;
-      
-      const StyledForm = styled.div`
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        `;
-      
-        const Input = styled(Field)`
-        color: FF6A22;
-        font-size: 2rem`;
-      
-        const Input2 = styled(Field)`
-        font-size: 2rem`;
-      
-        const Span = styled.span`
-        padding-bottom: 5%;`
             
     return (
       <CenteredDiv1>

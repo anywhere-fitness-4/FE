@@ -9,44 +9,26 @@ import {Route} from 'react-router-dom';
 import styled from "styled-components";
 import './App.css';
 
-//registration styles
-const CenteredDiv = styled.div`
-display: flex; 
-justify-content: center;
-padding-top: 10%;`;
-
-const StyledContainer = styled.div`
-border: 2px solid black;
-text-align: center;
-display: flex;
-justify-content: center;
-width: 50%;
-background-color: orange;
-`;
-
-const StyledForm = styled.div`
-display: flex;
-flex-direction: column;
-align-items: center;
-`;
-
-const Input = styled(Field)`
-color: FF6A22;
-font-size: 2rem
-`;
-
-const Span = styled.span`
-padding-bottom: 5%;`;
-
 //classes styles
 const Div = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;`;
+  justify-content: center;
+  background-color: orange;`;
 
 const TeamDiv = styled.div`
-  background-color: orange;`  
+  background-color: orange;`; 
+
+const StyledHeader = styled.h1`
+  color: white;
+  font-size: 3rem;
+  `;  
+
+  const StyledPar = styled.p`
+  color: white;
+  font-size: 1.5rem;
+  `;  
 
 function App() {
 
@@ -66,8 +48,8 @@ function App() {
       </Route>
       <Route exact path = "/classes">
         <Div>
-          <h1>Professional Affilliations</h1>
-          <p>Below are professional sports teams who have used Anywhere Fitness classes to help their performance.</p>
+          <StyledHeader>Professional Affilliations</StyledHeader>
+          <StyledPar>Below are professional sports teams who have used Anywhere Fitness classes to help their performance.</StyledPar>
         </Div>
         <TeamDiv>
           <ClassGrid/>
