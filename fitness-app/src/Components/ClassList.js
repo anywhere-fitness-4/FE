@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { axiosWithAuth } from '../utils/axiosWithAuth';
 
 const initialClax = {
@@ -38,7 +38,6 @@ const claxList = ({ claxes, updateClaxes }) => {
           </span>
           <div
               className="clax-box"
-              style={{ backgroundclax: clax.code.hex }}
               />
             </li>
         ))}
@@ -59,10 +58,10 @@ const claxList = ({ claxes, updateClaxes }) => {
             hex code:
             <input
             onChange={e =>
-                setClaxToEdit({
-                    ...claxToEdit,
-                    code: { hex: e.target.value }
-                })
+                // setClaxToEdit({
+                //     ...claxToEdit,
+                //     code: { hex: e.target.value }
+                // })
             }
             value={claxToEdit.code.hex}
             />
