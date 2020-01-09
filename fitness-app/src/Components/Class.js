@@ -12,7 +12,9 @@ width: 33%;
 margin: 5%;
 display: flex;
 flex-direction: column;
-align-items: center;`;
+align-items: center;
+background-color: white;
+color: orange;`;
 
 const Class = props => {
     return ( 

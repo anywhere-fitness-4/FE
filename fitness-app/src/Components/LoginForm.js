@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { withFormik, Form, Field } from "formik";
+import {CenteredDiv1, StyledContainer1, Span1, Input1, StyledForm1} from "./StyledRegister";
 import * as Yup from "yup";
 import axios from "axios";
 
@@ -42,35 +43,35 @@ const LoginForm =({values, errors, touched, status}) => {
         padding-bottom: 5%;`
             
     return (
-      <CenteredDiv>
-        <StyledContainer>
+      <CenteredDiv1>
+        <StyledContainer1>
           <Form>
             <h1>Login Form</h1>
-            <StyledForm>
+            <StyledForm1>
               <label htmlFor="username">Username:</label>
-              <Span/>
-              <Input
+              <Span1/>
+              <Input1
                   id="username" type="text" name="username" placeholder="username"
               />
               {touched.username && errors.username && (
                   <p>{errors.username}</p>
               )}
-              <Span/>
+              <Span1/>
               <label htmlFor="password">Password</label>
-              <Span/>
-              <Input
+              <Span1/>
+              <Input1
                   id="password" type="text" name="password" placeholder="password"
               />
               {touched.password && errors.password && (
                   <p>{errors.password}</p>
               )}
-              <Span/>
+              <Span1/>
               <button type="submit">Login</button>
-              <Span/>
-            </StyledForm>
+              <Span1/>
+            </StyledForm1>
           </Form>
-        </StyledContainer>  
-      </CenteredDiv>
+        </StyledContainer1>  
+      </CenteredDiv1>
     );
   };
   
