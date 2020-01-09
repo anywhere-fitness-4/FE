@@ -21,7 +21,7 @@ const Span = styled.span`
 const Button = styled.button`
     border: 2px solid white;
     color: orange;
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     text-decoration: none;
     border-radius: 15%;
     `    
