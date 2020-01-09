@@ -36,9 +36,6 @@ const StyledForm = styled.div`
   font-size: 2rem
   `;
 
-  const StyledInput = (props:any) => {
-      return <Input {...props} />
-  }
 
   const Input2 = styled(Field)`
   font-size: 2rem`;
@@ -55,7 +52,7 @@ const StyledForm = styled.div`
                 <StyledForm>
                 <label htmlFor="username">Username:</label>
                 <Span/>
-                <StyledInput
+                <Input
                     id="username" type="text" name="username" placeholder="choose username"
                 />
                 {touched.username && errors.username && (
