@@ -17,7 +17,7 @@ const LoginForm =({values, errors, touched, status}) => {
       padding-top: 10%;`;
       
       const StyledContainer = styled.div`
-        border: 2px solid black;
+        border: px solid black;
         text-align: center;
         display: flex;
         justify-content: center;
