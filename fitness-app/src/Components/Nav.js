@@ -24,6 +24,11 @@ const Button = styled.button`
     font-size: 1.5rem;
     text-decoration: none;
     border-radius: 15%;
+    :hover {
+        background-color: orange;
+        color: white;
+    } 
+        
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
     `    
 

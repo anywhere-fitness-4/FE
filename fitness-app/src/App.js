@@ -17,6 +17,13 @@ const Div = styled.div`
   justify-content: center;
   background-color: orange;`;
 
+  const Div1 = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  `;  
+
 const TeamDiv = styled.div`
   background-color: orange;`; 
 
@@ -41,13 +48,16 @@ function App() {
         <Home/>
       </Route>
       <Route exact path = "/register">
+        <Div1><img src = "Af.png"/></Div1>
         <FormikRegisterForm/>
       </Route>
       <Route exact path = "/login">
-      <FormikLoginForm/>
+        <Div1><img src = "Af.png"/></Div1>
+        <FormikLoginForm/>
       </Route>
       <Route exact path = "/classes">
         <Div>
+          <img src = "Af.png"/>
           <StyledHeader>Professional Affilliations</StyledHeader>
           <StyledPar>Below are professional sports teams who have used Anywhere Fitness classes to help their performance.</StyledPar>
         </Div>

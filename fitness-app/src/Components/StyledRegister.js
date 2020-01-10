@@ -8,7 +8,7 @@ import axios from "axios";
     export const CenteredDiv1 = styled.div`
     display: flex; 
     justify-content: center;
-    padding-top: 10%;`;
+    padding-top: 5%;`;
     
     export const StyledContainer1 = styled.div`
     border: 2px solid black;
