@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from "react";
 import Class from "./Class";
+import StyledHeader from "./Home";
 import axios from "axios";
 
 export default function ClassGrid() {

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { withFormik, Form, Field } from "formik";
+import {CenteredDiv1, StyledContainer1, Span1, Input1, StyledForm1} from "./StyledRegister";
 import * as Yup from "yup";
 import axios from "axios";
 
@@ -17,73 +18,70 @@ justify-content: center;
 padding-top: 10%;`;
 
 const StyledContainer = styled.div`
-  border: 2px solid black;
-  text-align: center;
-  display: flex;
-  justify-content: center;
-  width: 50%;
-  background-color: orange;
-  `;
+border: 2px solid black;
+text-align: center;
+display: flex;
+justify-content: center;
+width: 50%;
+background-color: orange;
+`;
 
 const StyledForm = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  `;
+display: flex;
+flex-direction: column;
+align-items: center;
+`;
 
-  const Input = styled(Field)`
-  color: FF6A22;
-  font-size: 2rem`;
+const Input = styled(Field)`
+color: FF6A22;
+font-size: 2rem
+`;
 
-  const Input2 = styled(Field)`
-  font-size: 2rem`;
-
-  const Span = styled.span`
-  padding-bottom: 5%;`
+const Span = styled.span`
+padding-bottom: 5%;`;
 
   return (
-      <CenteredDiv>
-        <StyledContainer>
-            
+      <CenteredDiv1>
+        <StyledContainer1>           
             <Form>
             <h1>Registration Form</h1>
-                <StyledForm>
-                <label htmlFor="username">Username:</label>
-                <Span/>
-                <Input
-                    id="username" type="text" name="username" placeholder="choose username"
-                />
-                {touched.username && errors.username && (
-                    <p>{errors.username}</p>
-                )}
-                <Span/>
-                <label htmlFor="password">Password:</label>
-                <Span/>
-                <Input
-                    id="password" type="text" name="password" placeholder="choose password"
-                />
-                {touched.password && errors.password && (
-                    <p>{errors.password}</p>
-                )}
-                <Span/>
-                <label htmlFor ="select">Type of User</label>
-                <Span/>
-                <Field
-                    as="select"
-                    name="role_id"
-                    type="dropdownlist"
-                    >   
-                    <option value="role_id">Role ID</option>
-                    <option value="1">1 Instructor</option>
-                    <option value="2">2 Client</option>
-                </Field>
-                <Span/>
-                <button type="submit">Complete Registration</button>
-                <Span/>
-                </StyledForm>
+                <StyledForm1>
+                    <label htmlFor="username">Username:</label>
+                    <Span1/>
+                    <Input1
+                        id="username" type="text" name="username" placeholder="choose username"
+                    />
+                    {touched.username && errors.username && (
+                        <p>{errors.username}</p>
+                    )}
+                    <Span1/>
+                    <label htmlFor="password">Password:</label>
+                    <Span1/>
+                    <Input1
+                        id="password" type="text" name="password" placeholder="choose password"
+                    />
+                    {touched.password && errors.password && (
+                        <p>{errors.password}</p>
+                    )}
+                    <Span1/>
+                    <label htmlFor ="select">Type of User:</label>
+                    <Span1/>
+                    <Field
+                        as="select"
+                        name="role_id"
+                        type="dropdownlist"
+                        >   
+                        <option value="role_id">Role ID</option>
+                        <option value="1">1 Instructor</option>
+                        <option value="2">2 Client</option>
+                    </Field>
+                    <Span1/>
+                    <button type="submit">Complete Registration</button>
+                    <Span1/>
+                </StyledForm1>
             </Form>
-        </StyledContainer>
-      </CenteredDiv>
+        </StyledContainer1>
+    </CenteredDiv1>
   );
 };
 

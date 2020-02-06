@@ -1,4 +1,5 @@
 import React from 'react';
+import { withFormik, Form, Field } from "formik";
 import FormikRegisterForm from '../src/Components/RegisterForm';
 import FormikLoginForm from '../src/Components/LoginForm';
 import ClassGrid from '../src/Components/ClassGrid';
@@ -8,6 +9,33 @@ import {Route} from 'react-router-dom';
 import styled from "styled-components";
 import './App.css';
 
+//classes styles
+const Div = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: orange;`;
+
+  const Div1 = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  `;  
+
+const TeamDiv = styled.div`
+  background-color: orange;`; 
+
+const StyledHeader = styled.h1`
+  color: white;
+  font-size: 3rem;
+  `;  
+
+  const StyledPar = styled.p`
+  color: white;
+  font-size: 1.5rem;
+  `;  
 
 function App() {
 
@@ -20,13 +48,22 @@ function App() {
         <Home/>
       </Route>
       <Route exact path = "/register">
+        <Div1><img src = "Af.png"/></Div1>
         <FormikRegisterForm/>
       </Route>
       <Route exact path = "/login">
-      <FormikLoginForm/>
+        <Div1><img src = "Af.png"/></Div1>
+        <FormikLoginForm/>
       </Route>
       <Route exact path = "/classes">
-        <ClassGrid/>
+        <Div>
+          <img src = "Af.png"/>
+          <StyledHeader>Professional Affilliations</StyledHeader>
+          <StyledPar>Below are professional sports teams who have used Anywhere Fitness classes to help their performance.</StyledPar>
+        </Div>
+        <TeamDiv>
+          <ClassGrid/>
+        </TeamDiv>
       </Route>
       
     </main>
